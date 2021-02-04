@@ -10,7 +10,6 @@ class Task extends Model
         'title',
         'description',
         'priority',
-        'employee_id'
     ];
 
     public function employee()

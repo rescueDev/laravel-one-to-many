@@ -16,10 +16,10 @@ class TaskSeeder extends Seeder
         factory(Task::class, 20)
             ->make()
             ->each(function ($task) {
-
+                dd($task);
                 $employee = Employee::inRandomOrder()->first();
 
-                $task->employee()->associate($employee); //associo la bottiglia al task
+                $task->employee()->associate($employee); //associo l' employee al task
                 $task->save(); //salvo il task nel db
             });
     }
