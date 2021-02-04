@@ -1,6 +1,7 @@
 @extends('layouts.main-layout')
 @section('content')
     <div class="container">
+        <a href="{{ route('tasks.create') }}">CREATE TASK</a>
         <ul>
             @foreach ($tasks as $task)
                 <li>
