@@ -4,7 +4,7 @@
         <ul>
             @foreach ($tasks as $task)
                 <li>
-                    <a href="">
+                    <a href="{{ route('tasks.show', $task->id) }}">
                         {{ $task->title }}
                     </a>
                 </li>
