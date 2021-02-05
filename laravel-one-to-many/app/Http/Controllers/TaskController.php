@@ -35,4 +35,18 @@ class TaskController extends Controller
         $newTask->save();
         return redirect()->route('tasks.show', $newTask->id);
     }
+    public function edit($id)
+    {
+        $employees = Employee::all();
+        $task = Task::findOrFail($id);
+        // dd($task);
+        return view('pages.task-edit', compact('task', 'employees'));
+    }
+    public function update(Request $request, $id)
+    {
+        // dd($request->all());
+        $task = Task::findOrFail($id);
+        $task->update($request->all());
+        return redirect()->route('tasks.show, $task->id');
+    }
 }

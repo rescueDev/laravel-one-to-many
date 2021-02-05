@@ -1,7 +1,7 @@
 @extends('layouts.main-layout')
 @section('content')
     <div class="container">
-        <a href="{{ route('employees.create') }}">CREATE TASK</a>
+        <a href="{{ route('employees.create') }}">CREATE EMPLOYEE</a>
         <ul>
             @foreach ($employees as $employee)
                 <li>

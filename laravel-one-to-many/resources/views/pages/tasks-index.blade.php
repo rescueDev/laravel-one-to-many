@@ -9,6 +9,9 @@
                         {{ $task->title }} --> {{ $task->employee->name }} {{ $task->employee->lastname }}
 
                     </a>
+                    <a href="{{ route('tasks.edit', $task->id) }}">
+                        EDIT
+                    </a>
                 </li>
             @endforeach
         </ul>
