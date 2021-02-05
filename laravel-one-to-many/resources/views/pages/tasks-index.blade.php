@@ -7,6 +7,7 @@
                 <li>
                     <a href="{{ route('tasks.show', $task->id) }}">
                         {{ $task->title }}
+
                     </a>
                 </li>
             @endforeach

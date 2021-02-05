@@ -16,6 +16,6 @@ class Employee extends Model
     public function tasks()
     {
 
-        return $this->belongsTo(Employee::class);
+        return $this->hasMany(Task::class);
     }
 }

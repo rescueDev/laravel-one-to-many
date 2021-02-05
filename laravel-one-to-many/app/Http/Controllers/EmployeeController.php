@@ -4,19 +4,20 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Employee;
+use App\Task;
 
 class EmployeeController extends Controller
 {
     public function index()
     {
         $employees = Employee::all();
-        // dd($tasks);
+
         return view('pages.employees-index', compact('employees'));
     }
     public function show($id)
     {
-        $employees = Employee::findOrFail($id);
-        return view('pages.employees-show', compact('employees'));
+        $employee = Employee::findOrFail($id);
+        return view('pages.employee-show', compact('employee'));
         // dd($employees);
     }
     public function create()
