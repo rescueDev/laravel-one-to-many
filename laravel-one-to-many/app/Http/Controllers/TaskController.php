@@ -46,7 +46,11 @@ class TaskController extends Controller
     {
         // dd($request->all());
         $task = Task::findOrFail($id);
+        $employee = Employee::findOrFail($request->get('employee_id'));
+        $task->employee()->associate($employee);
         $task->update($request->all());
-        return redirect()->route('tasks.show, $task->id');
+
+
+        return redirect()->route('tasks.index');
     }
 }

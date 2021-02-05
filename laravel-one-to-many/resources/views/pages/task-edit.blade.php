@@ -1,8 +1,9 @@
 @extends('layouts.main-layout')
 @section('content')
     <form action="{{ route('tasks.update', $task->id) }}" method="POST">
+
         @csrf
-        @method('POST')
+        @method('PUT')
 
         <label for="title">Title: </label>
         <input value="{{ $task->title }}" type="text" name="title">
@@ -22,7 +23,7 @@
         <select name="employee_id">
             @foreach ($employees as $employee)
                 <option value="{{ $employee->id }}" @if ($task->employee->id == $employee->id) {
-                        selected } @endif>
+                                                        selected } @endif>
 
                     {{ $employee->name }}
 

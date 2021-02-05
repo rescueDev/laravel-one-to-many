@@ -12,6 +12,9 @@
                     <a href="{{ route('tasks.edit', $task->id) }}">
                         EDIT
                     </a>
+                    <a href="">
+                        DELETE
+                    </a>
                 </li>
             @endforeach
         </ul>
