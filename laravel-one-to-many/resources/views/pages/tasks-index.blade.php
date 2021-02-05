@@ -9,12 +9,17 @@
                         {{ $task->title }} --> {{ $task->employee->name }} {{ $task->employee->lastname }}
 
                     </a>
-                    <a href="{{ route('tasks.edit', $task->id) }}">
-                        EDIT
-                    </a>
-                    <a href="">
-                        DELETE
-                    </a>
+                    <form action="{{ route('tasks.edit', $task->id) }}" method="POST">
+                        @method('GET')
+                        @csrf
+                        <input type="submit" value="EDIT">
+                    </form>
+                    <form action="{{ route('tasks.destroy', $task->id) }}" method="POST">
+                        @method('DELETE')
+                        @csrf
+                        <input type="submit" value="DELETE">
+                    </form>
+
                 </li>
             @endforeach
         </ul>
