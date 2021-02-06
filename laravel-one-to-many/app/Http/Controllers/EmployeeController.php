@@ -28,9 +28,29 @@ class EmployeeController extends Controller
     }
     public function store(Request $request)
     {
-        // dd($request->all());
         $newEmpl = Employee::create($request->all());
+        // dd($newEmpl);
 
         return redirect()->route('employees.show', $newEmpl->id);
+    }
+    public function edit($id)
+    {
+        $employee = Employee::findOrFail($id);
+        // dd($employee);
+        return view('pages.employee-edit', compact('employee'));
+    }
+    public function update(Request $request, $id)
+    {
+        // dd($request->all());
+        $employee = Employee::findOrFail($id);
+        $employee->update($request->all());
+        return redirect()->route('employees.show', $employee->id);
+    }
+    public function destroy($id)
+    {
+        $employee = Employee::findOrFail($id);
+        // dd($employee);
+        $employee->delete();
+        return redirect()->route('employees.index');
     }
 }
