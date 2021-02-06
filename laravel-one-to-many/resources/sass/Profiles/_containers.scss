@@ -1,0 +1,91 @@
+.employees-container {
+    width: 100%;
+    padding: 30px;
+    min-height: 600px;
+    background-color: rgb(129, 194, 140);
+
+    .button-container {
+        border: none;
+        padding: 8px;
+        a {
+            color: yellow;
+        }
+    }
+
+    ul {
+        list-style-type: none;
+
+        li {
+            width: 30%;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            border: 1px solid coral;
+            a {
+                color: white;
+                text-decoration: none;
+            }
+
+            .forms-container {
+                display: flex;
+                padding: 8px;
+                .edit-employee {
+                    width: 100%;
+                    border: 1px solid white;
+                    margin: auto 5px;
+                }
+                .delete-employee {
+                    width: 100%;
+                    border: 1px solid white;
+                    margin: auto;
+                }
+            }
+        }
+    }
+}
+
+.tasks-container {
+    width: 100%;
+    padding: 30px;
+    min-height: 600px;
+    background-color: rgb(24, 72, 134);
+
+    .button-container {
+        border: none;
+        padding: 8px;
+        a {
+            color: yellow;
+        }
+    }
+
+    ul {
+        list-style-type: none;
+
+        li {
+            width: 30%;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            border: 1px solid coral;
+            a {
+                color: white;
+                text-decoration: none;
+            }
+
+            .forms-container {
+                display: flex;
+                padding: 8px;
+                .edit-task {
+                    width: 100%;
+                    border: 1px solid white;
+                    margin: auto 5px;
+                }
+                .delete-task {
+                    width: 100%;
+                    border: 1px solid white;
+                    margin: auto;
+                }
+            }
+        }
+    }
+}

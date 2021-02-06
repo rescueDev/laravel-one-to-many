@@ -1,0 +1,143 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  text-align: center;
+}
+
+.home-container {
+  width: 100%;
+  padding: 30px;
+  height: 600px;
+  background-color: tan;
+}
+
+header {
+  padding-bottom: 20px;
+  height: 10vh;
+  background-color: slategray;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+header ul {
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: space-around;
+  list-style-type: none;
+  color: white;
+}
+
+footer {
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  background-color: salmon;
+  height: calc(100vh - 10vh - 600px);
+}
+
+.employees-container {
+  width: 100%;
+  padding: 30px;
+  min-height: 600px;
+  background-color: #81c28c;
+}
+
+.employees-container .button-container {
+  border: none;
+  padding: 8px;
+}
+
+.employees-container .button-container a {
+  color: yellow;
+}
+
+.employees-container ul {
+  list-style-type: none;
+}
+
+.employees-container ul li {
+  width: 30%;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  border: 1px solid coral;
+}
+
+.employees-container ul li a {
+  color: white;
+  text-decoration: none;
+}
+
+.employees-container ul li .forms-container {
+  display: flex;
+  padding: 8px;
+}
+
+.employees-container ul li .forms-container .edit-employee {
+  width: 100%;
+  border: 1px solid white;
+  margin: auto 5px;
+}
+
+.employees-container ul li .forms-container .delete-employee {
+  width: 100%;
+  border: 1px solid white;
+  margin: auto;
+}
+
+.tasks-container {
+  width: 100%;
+  padding: 30px;
+  min-height: 600px;
+  background-color: #184886;
+}
+
+.tasks-container .button-container {
+  border: none;
+  padding: 8px;
+}
+
+.tasks-container .button-container a {
+  color: yellow;
+}
+
+.tasks-container ul {
+  list-style-type: none;
+}
+
+.tasks-container ul li {
+  width: 30%;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  border: 1px solid coral;
+}
+
+.tasks-container ul li a {
+  color: white;
+  text-decoration: none;
+}
+
+.tasks-container ul li .forms-container {
+  display: flex;
+  padding: 8px;
+}
+
+.tasks-container ul li .forms-container .edit-task {
+  width: 100%;
+  border: 1px solid white;
+  margin: auto 5px;
+}
+
+.tasks-container ul li .forms-container .delete-task {
+  width: 100%;
+  border: 1px solid white;
+  margin: auto;
+}
+

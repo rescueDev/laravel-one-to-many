@@ -1,0 +1,23 @@
+#create-drink,
+#edit-drink {
+    padding: 10px;
+    text-align: center;
+    background-color: rebeccapurple;
+    color: white;
+
+    input:last-child {
+        padding: 8px;
+        border: none;
+        border-radius: 8px;
+        background-color: slategrey;
+
+        &:hover {
+            cursor: pointer;
+        }
+    }
+    input,
+    label {
+        display: block;
+        margin: 10px auto;
+    }
+}
