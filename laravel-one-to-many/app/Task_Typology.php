@@ -4,6 +4,7 @@ namespace App;
 
 use Illuminate\Database\Eloquent\Model;
 
-class Typology extends Model
+class Task_Typology extends Model
 {
+    //
 }

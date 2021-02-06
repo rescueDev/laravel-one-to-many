@@ -15,6 +15,12 @@ class CreateTaskTypologyTable extends Migration
     {
         Schema::create('task_typology', function (Blueprint $table) {
             $table->id();
+
+            $table->bigInteger('task_id')->unsigned();
+            $table->bigInteger('typology_id')->unsigned();
+
+
+
             $table->timestamps();
         });
     }
