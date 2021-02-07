@@ -26,14 +26,14 @@
                             <input type="submit" value="DELETE">
                         </form>
                     </div>
-                    <ul>
+                    {{-- <ul>
                         @foreach ($employee->tasks as $task)
                             <li>
                                 {{ $task->title }}
                                 ({{ $task->employee->name }})
                             </li>
                         @endforeach
-                    </ul>
+                    </ul> --}}
                 </li>
             @endforeach
         </ul>

@@ -7,7 +7,7 @@
                 <li>
                     <a href="{{ route('typologies.show', $typ->id) }}">
 
-                        Name: {{ $typ->name }}
+                        {{ $typ->name }}
 
                     </a>
                 </li>

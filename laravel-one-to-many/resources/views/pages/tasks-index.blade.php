@@ -6,7 +6,7 @@
             @foreach ($tasks as $task)
                 <li>
                     <a href="{{ route('tasks.show', $task->id) }}">
-                        {{ $task->title }} --> {{ $task->employee->name }} {{ $task->employee->lastname }}
+                        {{ $task->title }} {{-- --> {{ $task->employee->name }} {{ $task->employee->lastname }} --}}
 
                     </a>
                     <div class="forms-container">
