@@ -10,6 +10,9 @@
         <li>
             <a href="{{ route('employees.index') }}">Employees</a>
         </li>
-        <li>About</li>
+        <li>
+            <a href="{{ route('typologies.index') }}">Typologies</a>
+        </li>
+
     </ul>
 </header>

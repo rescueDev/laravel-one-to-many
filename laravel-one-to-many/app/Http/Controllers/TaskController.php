@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use App\Task;
 use App\Employee;
+use App\Typology;
 
 class TaskController extends Controller
 {
@@ -16,6 +17,7 @@ class TaskController extends Controller
     }
     public function show($id)
     {
+
         $task = Task::findOrFail($id);
         return view('pages.task-show', compact('task'));
         // dd($task);

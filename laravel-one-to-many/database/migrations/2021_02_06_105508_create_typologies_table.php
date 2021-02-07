@@ -15,7 +15,7 @@ class CreateTypologiesTable extends Migration
     {
         Schema::create('typologies', function (Blueprint $table) {
             $table->id();
-            $table->string('name', 60)->unique();
+            $table->string('name', 60);
             $table->text('description');
             $table->timestamps();
         });
