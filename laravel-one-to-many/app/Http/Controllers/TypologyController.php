@@ -42,4 +42,14 @@ class TypologyController extends Controller
         $typology = Typology::findOrFail($id);
         return view('pages.typ-edit', compact('tasks', 'typology'));
     }
+    public function update(Request $request, $id)
+    {
+        $data = $request->all();
+        $typology = Typology::findOrFail($id);
+        $typology->update($data);
+        $tasks = Task::findOrFail($data['tasks']);
+        $typology->tasks()->sync($tasks);
+        // dd($typology);
+        return redirect()->route('typologies.show', $typology->id);
+    }
 }

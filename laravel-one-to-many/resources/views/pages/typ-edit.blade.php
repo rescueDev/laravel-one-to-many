@@ -6,7 +6,7 @@
         @method('PUT')
 
         <label for="title">Name: </label>
-        <input value="{{ $typology->name }}" type="text" name="title">
+        <input value="{{ $typology->name }}" type="text" name="name">
 
         <br>
 
@@ -21,7 +21,7 @@
         <br>
         @foreach ($tasks as $task)
 
-            <input type="checkbox" name="tasks[]" value="{{ $task->id }}">
+            <input type="checkbox" name="tasks[]" value="{{ $task->id }}" @if ($typology->tasks->contains($task->id)) checked @endif>
             {{ $task->title }}
             <br>
         @endforeach
