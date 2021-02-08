@@ -25,16 +25,26 @@ class TaskController extends Controller
     public function create()
     {
         $employees = Employee::all();
+        $typologies = Typology::all();
         // dd($employees);
-        return view('pages.task-create', compact('employees'));
+        return view('pages.task-create', compact('employees', 'typologies'));
     }
     public function store(Request $request)
     {
-        // dd($request->all());
-        $newTask = Task::make($request->all());
-        $employee = Employee::findOrFail($request->get('employee_id'));
+        $data = $request->all();
+        $newTask = Task::make($data);
+
+        $employee = Employee::findOrFail($data['employee_id']);
         $newTask->employee()->associate($employee);
         $newTask->save();
+
+        $typologies = Typology::findOrFail($data['typologies']);
+        $newTask->typologies()->attach($typologies);
+
+        // dd($newTask);
+
+
+
         return redirect()->route('tasks.show', $newTask->id);
     }
     public function edit($id)

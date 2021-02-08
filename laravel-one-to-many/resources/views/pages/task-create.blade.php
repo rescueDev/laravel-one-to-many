@@ -29,6 +29,12 @@
             @endforeach
 
         </select>
+        <br>
+        @foreach ($typologies as $typology)
+            <input type="checkbox" name="typologies[]" value="{{ $typology->id }}">
+            {{ $typology->name }}
+            <br>
+        @endforeach
 
 
 
