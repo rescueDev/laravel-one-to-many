@@ -36,18 +36,22 @@ class TaskController extends Controller
 
         // dd($newTask);
 
-        $employee = Employee::findOrFail($data['employee_id']);
-        $newTask->employee()->associate($employee);
-        $newTask->save();
+        // dd(gettype($data['employee_id']));
+        if ($data['employee_id'] != 'null') {
 
+            $employee = Employee::findOrFail($data['employee_id']);
+            $newTask->employee()->associate($employee);
+        }
+        $newTask->save();
         $typologies = Typology::findOrFail($data['typologies']);
         $newTask->typologies()->attach($typologies);
+        // dd($newTask);
 
         // dd($newTask);
 
 
 
-        return redirect()->route('tasks.show', $newTask->id);
+        return redirect()->route('tasks.index');
     }
     public function edit($id)
     {
@@ -83,10 +87,19 @@ class TaskController extends Controller
     public function destroy($id)
     {
 
-        $task = Task::findOrFail($id);
+        Task::destroy($id);
         // dd($task);
-        $task->delete();
+        // $task->destroy();
 
+        return redirect()->route('tasks.index');
+    }
+    public function restore(Request $request)
+    {
+        $data = $request->all();
+        // dd($data);
+        $id = $data['title'];
+
+        Task::where('title', $id)->restore();
         return redirect()->route('tasks.index');
     }
 }

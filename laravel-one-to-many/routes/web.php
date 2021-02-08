@@ -14,3 +14,5 @@ Route::resource('employees', 'EmployeeController');
 
 //Typologies
 Route::resource('typologies', 'TypologyController');
+
+Route::post('/task/restore', 'TaskController@restore')->name('restore-task');

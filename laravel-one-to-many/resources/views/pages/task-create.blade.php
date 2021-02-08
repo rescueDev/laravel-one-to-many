@@ -20,6 +20,8 @@
 
         <label for="priority">Employee: </label>
         <select name="employee_id">
+            <option value="null">X</option>
+
             @foreach ($employees as $employee)
                 <option value="{{ $employee->id }}">
 
@@ -41,9 +43,17 @@
 
 
 
-
         <br>
         <input type="submit" value="SAVE">
 
     </form>
+
+    <form action="{{ route('restore-task') }}" method="POST">
+        @csrf
+        @method('POST')
+        <label for="restore id">Restore Task</label>
+        <input type="text" name="title">
+        <input type="submit" value="RESTORE">
+    </form>
+
 @endsection

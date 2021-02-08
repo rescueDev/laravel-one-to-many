@@ -25,7 +25,12 @@
 
     <h1>Associated Employee</h1>
 
-    <h4>{{ $task->employee->name }} {{ $task->employee->lastname }}</h4>
+    @if (!$task->employee)
+        <h1>Nessun Employee</h1>
+    @else
+        <h4>{{ $task->employee->name }} {{ $task->employee->lastname }}</h4>
+
+    @endif
 
 
 @endsection
