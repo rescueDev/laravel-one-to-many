@@ -23,7 +23,8 @@
         <select name="employee_id">
             @foreach ($employees as $employee)
                 <option value="{{ $employee->id }}" @if ($task->employee->id == $employee->id) {
-                                                        selected } @endif>
+                                    
+                                        selected } @endif>
 
                     {{ $employee->name }}
 
@@ -32,6 +33,14 @@
             @endforeach
 
         </select>
+        <br>
+        @foreach ($typologies as $typ)
+
+            <input type="checkbox" name="typologies[]" value="{{ $typ->id }}" @if ($task->typologies->contains($typ->id)) checked @endif>
+            {{ $typ->name }}
+            <br>
+        @endforeach
+
 
 
 

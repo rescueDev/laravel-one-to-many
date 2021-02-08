@@ -49,19 +49,32 @@ class TaskController extends Controller
     }
     public function edit($id)
     {
+        $typologies = Typology::all();
         $employees = Employee::all();
+
+
         $task = Task::findOrFail($id);
         // dd($task);
-        return view('pages.task-edit', compact('task', 'employees'));
+        return view('pages.task-edit', compact('task', 'employees', 'typologies'));
     }
     public function update(Request $request, $id)
     {
         // dd($request->all());
+        $data = $request->all();
+
         $task = Task::findOrFail($id);
-        $employee = Employee::findOrFail($request->get('employee_id'));
+        $employee = Employee::findOrFail($data['employee_id']);
+
+        $task->update($data);
+
+        $task->save();
+
         $task->employee()->associate($employee);
         $task->update($request->all());
 
+
+        $typologies = Typology::findOrFail($data['typologies']);
+        $task->typologies()->sync($typologies);
 
         return redirect()->route('tasks.index');
     }
