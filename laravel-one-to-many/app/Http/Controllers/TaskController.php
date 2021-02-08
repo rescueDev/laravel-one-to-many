@@ -34,6 +34,8 @@ class TaskController extends Controller
         $data = $request->all();
         $newTask = Task::make($data);
 
+        // dd($newTask);
+
         $employee = Employee::findOrFail($data['employee_id']);
         $newTask->employee()->associate($employee);
         $newTask->save();
