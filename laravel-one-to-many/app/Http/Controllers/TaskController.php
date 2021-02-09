@@ -7,6 +7,9 @@ use App\Task;
 use App\Employee;
 use App\Typology;
 
+use Illuminate\Support\Facades\Validator;
+
+
 class TaskController extends Controller
 {
     public function index()
@@ -32,6 +35,11 @@ class TaskController extends Controller
     public function store(Request $request)
     {
         $data = $request->all();
+        Validator::make($data, [
+            'title' => 'required|min:5|max:60',
+            'description' => 'required|min:65000',
+            'priority' => 'required|numeric|digits_between:1,5'
+        ])->validate();
         $newTask = Task::make($data);
 
         // dd($newTask);
@@ -67,6 +75,12 @@ class TaskController extends Controller
     {
         // dd($request->all());
         $data = $request->all();
+
+        Validator::make($data, [
+            'title' => 'required|min:5|max:60',
+            'description' => 'required|min:65000',
+            'priority' => 'required|numeric|digits_between:1,5'
+        ])->validate();
 
         $task = Task::findOrFail($id);
         $employee = Employee::findOrFail($data['employee_id']);
