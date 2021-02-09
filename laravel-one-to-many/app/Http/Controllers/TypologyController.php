@@ -6,6 +6,8 @@ use App\Typology;
 use Illuminate\Http\Request;
 use App\Employee;
 use App\Task;
+use Illuminate\Support\Facades\Validator;
+
 
 class TypologyController extends Controller
 {
@@ -28,6 +30,10 @@ class TypologyController extends Controller
     {
         // dd($request->all());
         $data = $request->all();
+        Validator::make($data, [
+            'name' => 'required|min:5|max:10',
+            'description' => 'required|min:10'
+        ])->validate();
         $newTypology = Typology::create($request->all());
         $tasks = Task::findOrFail($data['tasks']);
         $newTypology->tasks()->attach($tasks);
@@ -45,6 +51,12 @@ class TypologyController extends Controller
     public function update(Request $request, $id)
     {
         $data = $request->all();
+
+        Validator::make($data, [
+            'name' => 'required|min:5|max:10',
+            'description' => 'required|min:10'
+        ])->validate();
+
         $typology = Typology::findOrFail($id);
         $typology->update($data);
         $tasks = Task::findOrFail($data['tasks']);
