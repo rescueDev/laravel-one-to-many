@@ -37,7 +37,7 @@ class TaskController extends Controller
         $data = $request->all();
         Validator::make($data, [
             'title' => 'required|min:5|max:60',
-            'description' => 'required|min:65000',
+            'description' => 'required|min:5|max:65000',
             'priority' => 'required|numeric|digits_between:1,5'
         ])->validate();
         $newTask = Task::make($data);

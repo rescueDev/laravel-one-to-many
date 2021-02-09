@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use App\Employee;
 use App\Task;
+use Illuminate\Support\Facades\Validator;
 
 class EmployeeController extends Controller
 {
@@ -28,6 +29,13 @@ class EmployeeController extends Controller
     }
     public function store(Request $request)
     {
+        $data = $request->all();
+        Validator::make($data, [
+            'name' => 'required|min:3|max:60|alpha',
+            'lastname' => 'required|min:3|max:60|alpha',
+            'dateOfBirth' => 'required|date|before:2003-01-01'
+
+        ])->validate();
         $newEmpl = Employee::create($request->all());
         // dd($newEmpl);
 
@@ -42,6 +50,14 @@ class EmployeeController extends Controller
     public function update(Request $request, $id)
     {
         // dd($request->all());
+        $data = $request->all();
+
+        Validator::make($data, [
+            'name' => 'required|min:3|max:60|alpha',
+            'lastname' => 'required|min:3|max:60|alpha',
+            'dateOfBirth' => 'required|date|before:2003-01-01'
+
+        ])->validate();
         $employee = Employee::findOrFail($id);
         $employee->update($request->all());
         return redirect()->route('employees.show', $employee->id);
