@@ -1,5 +1,14 @@
 @extends('layouts.main-layout')
 @section('content')
+    @if ($errors->any())
+        <div class="alert alert-danger">
+            <ul>
+                @foreach ($errors->all() as $error)
+                    <li>{{ $error }}</li>
+                @endforeach
+            </ul>
+        </div>
+    @endif
     <form action="{{ route('tasks.update', $task->id) }}" method="POST">
 
         @csrf
@@ -23,8 +32,8 @@
         <select name="employee_id">
             @foreach ($employees as $employee)
                 <option value="{{ $employee->id }}" @if ($task->employee->id == $employee->id) {
-                                    
-                                        selected } @endif>
+                                        
+                                            selected } @endif>
 
                     {{ $employee->name }}
 
